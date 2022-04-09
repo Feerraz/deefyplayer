@@ -1,43 +1,46 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from './model/usuario';
-import { Genero } from './model/genero';
-import { Album } from './model/album';
-import { Artista } from './model/artista';
-import { Musica } from './model/musica';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  getMusica() {
-    return this.get<Musica[]>(this.url + "Musica");
+
+  public url = "https://localhost:5001/api/";
+
+  constructor(private http: HttpClient) { }
+
+  public get<T>(fullUrl: string) : Observable<T> {
+    return this.http.get<T>(fullUrl);
   }
 
-  private url = "https://localhost:5001/api/"
-  constructor(private http:HttpClient) { }
+  public post<T>(fullurl: string, json: any) {
+    var headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    headers.set('Accept', 'application/json');
 
-  getUsuario(){
-    return this.get<Usuario[]>(this.url + "Usuario");
+    var httpOptions = {
+      headers: headers
+    }
+
+    return this.http.post(fullurl, json, httpOptions);
   }
 
-  getGenero(){
-    return this.get<Genero[]>(this.url + "Genero");
+  public put<T>(fullurl: string, json: any) {
+    var headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    headers.set('Accept', 'application/json');
+
+    var httpOptions = {
+      headers: headers
+    }
+    return this.http.put(fullurl, json, httpOptions);
   }
 
-  getArtista(){
-    return this.get<Artista[]>(this.url + "Artista");
-  }
-
-  getAlbum(){
-    return this.get<Album[]>(this.url + "Album");
-  }
-
-  private get<T>(fulUrl: string) : Observable<T>{
-    return this.http.get<T>(fulUrl);
+  public delete(fullurl: string){
+    return this.http.delete(fullurl);
   }
 
 }

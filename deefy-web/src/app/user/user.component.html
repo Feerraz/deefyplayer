@@ -1,11 +1,29 @@
-    <h1>Tela de manutenção de usuários</h1>
+<h1>Tela de manutenção de usuários</h1>
 
-    <table border="1">
+<table class="table" style="width: 80%">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Editar </th>
+      <th scope="col"> Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr *ngFor="let usuario of usuarios">
-      <td>{{ usuario.id }}</td>
-      <td>{{ usuario.nome }}</td>
-      <td>{{ usuario.email }}</td>
-      <td>{{ usuario.senha }}</td>
-     </tr>
-    </table>
-
+      <td> {{ usuario.id }}</td>
+      <td> {{ usuario.nome }}</td>
+      <td> {{ usuario.email }}</td>
+      <td>
+        <button (click)="editar(usuario.id)" class="btn btn-light">
+          <i class="bi bi-pencil"></i>
+        </button>
+      </td>
+      <td>
+        <button (click)="excluir(usuario.id)" class="btn btn-light">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>

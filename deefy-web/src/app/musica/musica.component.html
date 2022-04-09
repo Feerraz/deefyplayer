@@ -1,11 +1,11 @@
 <p>musica works!</p>
 
-<table border="1">
+<table class="table">
   <tr *ngFor="let musica of musicas">
     <td>{{ musica.id }}</td>
     <td>{{ musica.nomeMusica }}</td>
     <td>{{ musica.ArtistaId}}</td>
     <td>{{ musica.GeneroId }}</td>
-    <td>{{ musica.ArquivoMusica}}</td>
+    <td style="width: 100px;">{{ musica.ArquivoMusica}}</td>
    </tr>
   </table>

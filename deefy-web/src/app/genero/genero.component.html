@@ -2,10 +2,33 @@
 
 
 
-<table border="1">
-  <tr *ngFor="let genero of generos">
-    <td>{{ genero.id }}</td>
-    <td>{{ genero.nome }}</td>
-    <td>{{ genero.descricao }}</td>
-   </tr>
-  </table>
+<table class="table" style="width: 80%">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Editar </th>
+      <th scope="col"> Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div *ngFor="let genero of generos">
+      {{ genero.id }}
+    </div>
+    <!--tr *ngFor="let genero of generos">
+      <td> {{ genero.id }}</td>
+      <td> {{ genero.nome }}</td>
+      <td> {{ genero.descricao }}</td>
+      <td>
+        <button (click)="editar(genero.id)" class="btn btn-light">
+          <i class="bi bi-pencil"></i>
+        </button>
+      </td>
+      <td>
+        <button (click)="excluir(genero.id)" class="btn btn-light">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+    </tr-->
+  </tbody>
