@@ -1,12 +1,25 @@
-<p>album works!</p>
-
-
-<table border="1">
-  <tr *ngFor="let album of albums">
-    <td>{{ album.id }}</td>
-    <td>{{ album.titulo }}</td>
-    <td>{{ album.DataLancamento }}</td>
-   </tr>
-  </table>
-
-
+<table class="table" style="width: 80%">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Título</th>
+      <th scope="col">Editar </th>
+      <th scope="col"> Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let album of albuns">
+      <td> {{ album.id }}</td>
+      <td> {{ album.titulo }}</td>
+      <td>
+        <button (click)="editar(album.id)" class="btn btn-light">
+          <i class="bi bi-pencil"></i>
+        </button>
+      </td>
+      <td>
+        <button (click)="excluir(album.id)" class="btn btn-light">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>

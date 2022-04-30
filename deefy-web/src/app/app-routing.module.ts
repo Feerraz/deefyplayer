@@ -11,23 +11,29 @@ import { EditarAlbumComponent } from './editar-album/editar-album.component';
 import { EditarArtistaComponent } from './editar-artista/editar-artista.component';
 import { EditarGeneroComponent } from './editar-genero/editar-genero.component';
 import { EditarMusicaComponent } from './editar-musica/editar-musica.component';
-
+import { ReproduzirMusicaComponent } from './reproduzir-musica/reproduzir-musica.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
+import { CadastroComponent } from './cadastro/cadastro.component';
 const routes: Routes = [{
   path: '',
-  redirectTo:'home',
+  redirectTo:'login',
   pathMatch:'full'
 },
-  { path: 'home', component: HomeComponent },
-  {path: 'user', component: UserComponent},
-  {path: 'album', component: AlbumComponent},
-  {path: 'artista', component: ArtistaComponent},
-  {path: 'genero', component: GeneroComponent},
-  {path: 'musica', component: MusicaComponent},
-  {path: 'editar-usuario', component: EditarUsuarioComponent},
-  {path: 'editar-album', component: EditarAlbumComponent},
-  {path: 'editar-artista', component: EditarArtistaComponent},
-  {path: 'editar-genero', component: EditarGeneroComponent},
-  {path: 'editar-musica', component: EditarMusicaComponent}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+  {path: 'user', component: UserComponent, canActivate: [AuthGuardService] },
+  {path: 'album', component: AlbumComponent, canActivate: [AuthGuardService] },
+  {path: 'artista', component: ArtistaComponent, canActivate: [AuthGuardService] },
+  {path: 'genero', component: GeneroComponent, canActivate: [AuthGuardService] },
+  {path: 'musica', component: MusicaComponent, canActivate: [AuthGuardService] },
+  {path: 'editar-usuario', component: EditarUsuarioComponent, canActivate: [AuthGuardService] },
+  {path: 'editar-album', component: EditarAlbumComponent, canActivate: [AuthGuardService] },
+  {path: 'editar-artista', component: EditarArtistaComponent, canActivate: [AuthGuardService] },
+  {path: 'editar-genero', component: EditarGeneroComponent, canActivate: [AuthGuardService] },
+  {path: 'editar-musica', component: EditarMusicaComponent, canActivate: [AuthGuardService] },
+  {path: 'reproduzirMusica', component: ReproduzirMusicaComponent, canActivate: [AuthGuardService] },
+  {path: 'login', component: LoginComponent },
+  {path: 'cadastro', component: CadastroComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

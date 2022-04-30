@@ -25,6 +25,7 @@ export class MusicaComponent implements OnInit {
   Load(){
     this.musicaService.buscarMusicas().subscribe(musicas => {
       this.musicas = musicas;
+      console.log(musicas)
     });
   }
 
@@ -37,5 +38,9 @@ export class MusicaComponent implements OnInit {
       alert("Musica excluida com sucesso");
       this.Load();
     });
+  }
+  reproduzir(id: any){
+    this.router.navigate(['/reproduzirMusica', { id: id }]);
+
   }
 }

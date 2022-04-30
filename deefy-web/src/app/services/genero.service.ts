@@ -11,7 +11,7 @@ export class GeneroService extends ApiService {
   constructor(http: HttpClient) {
     super(http);
   }
-  buscarGenero(){
+  buscarGeneros(){
     return this.get<Genero[]>(this.url + "Genero");
   }
   Genero(id: number){

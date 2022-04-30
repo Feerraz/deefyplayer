@@ -1,1 +1,46 @@
-<p>editar-musica works!</p>
+<div class="col col-lg-6">
+  <label class="form-label">Nome</label>
+  <input
+    id="NomeMusica"
+    [(ngModel)]="NomeMusica"
+    type="text"
+    class="form-control"
+    placeholder="Nome da Música">
+</div>
+
+<div class="col col-lg-6">
+  <label class="form-label">Arquivo</label>
+  <input
+    id="ArquivoMusica"
+    [(ngModel)]="ArquivoMusica"
+    type="text"
+    class="form-control"
+    placeholder="Arquivo da Música">
+</div>
+
+<div class="col col-lg-6">
+  <label class="form-label">Artista</label>
+  <input
+    id="ArtistaId"
+    [(ngModel)]="ArtistaId"
+    type="text"
+    class="form-control"
+    placeholder="Artista da Música">
+</div>
+
+<div class="col col-lg-6">
+  <label class="form-label">Genero</label>
+  <input
+    id="GeneroId"
+    [(ngModel)]="GeneroId"
+    type="text"
+    class="form-control"
+    placeholder="Genero da Música">
+</div>
+<button
+  type="button"
+  (click)="salvar()"
+  class="btn btn-primary"
+  style="margin-top: 15px; margin-left: 15px;">Salvar</button>
+
+

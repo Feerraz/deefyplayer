@@ -24,8 +24,8 @@ export class ApiService {
     var httpOptions = {
       headers: headers
     }
-
-    return this.http.post(fullurl, json, httpOptions);
+    console.log(json)
+    return this.http.post(fullurl,json, httpOptions);
   }
 
   public put<T>(fullurl: string, json: any) {

@@ -31,4 +31,14 @@ export class UsuarioService extends ApiService {
   excluirUsuario(id: number){
     return this.delete(this.url + "Usuario/" + id);
   }
+
+  realizarLogin(email: string, senha: string){
+    var login ={
+      email: email,
+      senha: senha
+    };
+
+    return this.post(this.url + "Usuario/login", login);
+  }
 }
+

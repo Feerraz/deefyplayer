@@ -20,11 +20,11 @@ export class MusicaService extends ApiService {
     return this.get<Musica>(this.url + "Musica/" + id);
   }
 
-  atualizarMusica(musica: Musica){
+  atualizarMusica(musica: any){
     return this.put(this.url + "Musica/" + musica.id, musica);
   }
 
-  criarMusica(musica: Musica){
+  criarMusica(musica: any){
     return this.post(this.url + "Musica", musica);
   }
 

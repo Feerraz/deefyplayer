@@ -24,11 +24,19 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/user">Usuário</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/cadastro">Cadastro</a>
+        </li>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
         <button class="btn btn-outline-success" style="margin-left: 10px" type="submit">Pesquisar</button>
       </form>
+      <button (click)="sair()" class="btn btn-outline-success" style="margin-left: 10px" type="submit">
+        <i class="bi bi-box-arrow-right"></i>
+        Sair
+      </button>
+
     </div>
   </div>
 </nav>

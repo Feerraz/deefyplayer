@@ -23,7 +23,8 @@ export class GeneroComponent implements OnInit {
   }
 
   Load(){
-    this.generoService.buscarGenero().subscribe(generos => {
+    this.generoService.buscarGeneros().subscribe(generos => {
+      console.log(generos);
       this.generos = generos;
     });
   }

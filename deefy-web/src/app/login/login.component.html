@@ -1,0 +1,37 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h2>DeeFyPlay</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text"
+      id="login"
+      [(ngModel)]="email"
+      class="fadeIn second"
+      name="login" placeholder="E-mail">
+
+      <input
+      type="password"
+      id="password"
+      [(ngModel)]="senha"
+      class="fadeIn third"
+      name="login"
+      placeholder="Senha">
+
+      <input
+      type="submit"
+      (click)="entrar()"
+      class="fadeIn fourth"
+      value="Entrar">
+    </form>
+
+
+
+
+  </div>
+</div>

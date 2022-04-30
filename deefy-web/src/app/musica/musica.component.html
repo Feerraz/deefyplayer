@@ -1,11 +1,39 @@
-<p>musica works!</p>
 
-<table class="table">
-  <tr *ngFor="let musica of musicas">
+<table class="table" style="width: 80%">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Artista</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Arquivo</th>
+      <th scope="col">Editar </th>
+      <th scope="col"> Excluir</th>
+      <th scope="col"> Reproduzir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let musica of musicas">
     <td>{{ musica.id }}</td>
     <td>{{ musica.nomeMusica }}</td>
-    <td>{{ musica.ArtistaId}}</td>
-    <td>{{ musica.GeneroId }}</td>
-    <td style="width: 100px;">{{ musica.ArquivoMusica}}</td>
-   </tr>
-  </table>
+    <td>{{ musica.artistaId }}</td>
+    <td>{{ musica.generoId }}</td>
+    <td>{{ musica.arquivoMusica }}</td>
+
+      <td>
+        <button (click)="editar(musica.id)" class="btn btn-light">
+          <i class="bi bi-pencil"></i>
+        </button>
+      </td>
+      <td>
+        <button (click)="excluir(musica.id)" class="btn btn-light">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+      <td>
+        <button (click)="reproduzir(musica.id)" class="btn btn-light">
+          <i class="bi bi-play"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>

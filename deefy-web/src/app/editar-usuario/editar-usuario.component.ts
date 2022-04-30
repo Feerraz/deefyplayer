@@ -26,6 +26,8 @@ export class EditarUsuarioComponent implements OnInit {
           this.email = usuario.email,
           this.senha = usuario.senha
         });
+      } else {
+        this.id = 0;
       }
     })
    }
@@ -63,12 +65,14 @@ export class EditarUsuarioComponent implements OnInit {
       usuario.email = this.email;
       usuario.senha = this.senha;
       usuario.dataInclusao = new Date();
-
+      console.log(this.id)
       if (this.id == 0){
+        console.log('cadastrar')
         this.usuarioService.criarUsuario(usuario).subscribe(() => {
           alert("Cadastrado com sucesso");
         });
       } else {
+        console.log('atualizar')
         this.usuarioService.atualizarUsuario(usuario).subscribe(() => {
           alert("Atualizado com sucesso");
         });
