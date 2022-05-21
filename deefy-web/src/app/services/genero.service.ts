@@ -14,7 +14,7 @@ export class GeneroService extends ApiService {
   buscarGeneros(){
     return this.get<Genero[]>(this.url + "Genero");
   }
-  Genero(id: number){
+  buscarGenero(id: number){
     return this.get<Genero>(this.url + "Genero/" + id);
 }
   atualizarGenero(genero: Genero){

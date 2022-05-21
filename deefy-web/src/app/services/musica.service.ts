@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Musica } from './model/musica';
+import { MusicaDTO } from './model/musicaDTO';
+import { SugestaoMusica } from './model/sugestao';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class MusicaService extends ApiService {
   }
 
   buscarMusicas(){
-    return this.get<Musica[]>(this.url + "Musica");
+    return this.get<MusicaDTO[]>(this.url + "Musica");
   }
 
   buscarMusica(id: number){
@@ -30,5 +32,12 @@ export class MusicaService extends ApiService {
 
   excluirMusica(id: number){
     return this.delete(this.url + "Musica/" + id);
+  }
+
+  inserirSugestao(sugestao : any){
+    return this.post(this.url + "Musica/InserirSugestao/", sugestao);
+  }
+  buscarSugestao(id : number){
+    return this.get(this.url + "Musica/Sugestoes/Usuario/" + id);
   }
 }

@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { Artista } from '../services/model/artista';
 import { ArtistaService } from '../services/artista.service';
+import { GeneroService } from '../services/genero.service';
+import { Genero } from '../services/model/genero';
+import { ArtistaDTO } from '../services/model/artistaDTO';
 
 @Component({
   selector: 'app-artista',
@@ -12,9 +15,10 @@ import { ArtistaService } from '../services/artista.service';
 })
 export class ArtistaComponent implements OnInit {
 
-  artistas: Artista[] | undefined;
+  artistas: ArtistaDTO[] | undefined;
 
-  constructor(private artistaService: ArtistaService, private router: Router) {
+  constructor(private artistaService: ArtistaService,
+    private router: Router) {
 
   }
 
@@ -23,13 +27,13 @@ export class ArtistaComponent implements OnInit {
   }
 
   Load(){
-    this.artistaService.buscarArtista().subscribe(artistas => {
+    this.artistaService.buscarArtistas().subscribe(artistas => {
       this.artistas = artistas;
     });
   }
 
   editar(id:any){
-    this.router.navigate(['/editar-album', { id: id }]);
+    this.router.navigate(['/editar-artista', { id: id }]);
   }
 
   excluir(id: any){

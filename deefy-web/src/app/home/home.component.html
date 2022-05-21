@@ -1,1 +1,21 @@
-<p>Início funcionando!</p>
+<h1>Escute novamente!</h1>
+
+
+<div class = "row" margin-top="1px">
+  <div *ngFor="let musica of musicas">
+    <div  class="card" style="width: 15.7rem;">
+        <div>
+          <youtube-player
+            [height]="320"
+            [width]="250"
+            videoId="{{ musica.arquivoMusica }}">
+      </youtube-player>
+      </div >
+         </div>
+       <div class="card-body">
+          <h5 class="card-title">{{musica.nomeMusica}}</h5>
+          <a (click)="reproduzir(musica.id)" class="btn btn-primary">Escutar agora!</a>
+      </div>
+    </div>
+
+</div>

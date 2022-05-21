@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Album } from './model/album'
+import { AlbumDTO } from './model/albumDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AlbumService extends ApiService {
     super(http);
   }
   buscarAlbuns(){
-    return this.get<Album[]>(this.url + "Album");
+    return this.get<AlbumDTO[]>(this.url + "Album");
   }
   buscarAlbum(id: number){
     return this.get<Album>(this.url + "Album/" + id);

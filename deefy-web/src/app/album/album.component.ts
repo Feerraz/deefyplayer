@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { Album } from '../services/model/album';
 import { AlbumService } from '../services/album.service';
+import { AlbumDTO } from '../services/model/albumDTO';
 
 @Component({
   selector: 'app-album',
@@ -12,7 +13,7 @@ import { AlbumService } from '../services/album.service';
 })
 export class AlbumComponent implements OnInit {
 
-  albuns: Album[] | undefined;
+  albuns: AlbumDTO[] | undefined;
 
 
   constructor(private albumService: AlbumService, private router: Router) {
@@ -20,6 +21,7 @@ export class AlbumComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("joao é gay")
     this.Load();
   }
 

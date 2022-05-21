@@ -3,6 +3,8 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Título</th>
+      <th scope="col">Artista</th>
+      <th scope="col">Gênero</th>
       <th scope="col">Editar </th>
       <th scope="col"> Excluir</th>
     </tr>
@@ -11,6 +13,8 @@
     <tr *ngFor="let album of albuns">
       <td> {{ album.id }}</td>
       <td> {{ album.titulo }}</td>
+      <td>{{ album.nomeArtista }}</td>
+      <td>{{ album.nomeGenero }}</td>
       <td>
         <button (click)="editar(album.id)" class="btn btn-light">
           <i class="bi bi-pencil"></i>

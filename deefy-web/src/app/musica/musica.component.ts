@@ -4,6 +4,12 @@ import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { Musica } from '../services/model/musica';
 import { MusicaService } from '../services/musica.service';
+import { MusicaDTO } from '../services/model/musicaDTO';
+import { SugestaoMusica } from '../services/model/sugestao';
+import { LoginService } from '../services/login/login.service';
+import { ReproduzirMusicaComponent } from '../reproduzir-musica/reproduzir-musica.component';
+import { ReproduzirMusicaService } from '../services/reproduzir-musica.service';
+
 
 @Component({
   selector: 'app-musica',
@@ -12,9 +18,12 @@ import { MusicaService } from '../services/musica.service';
 })
 export class MusicaComponent implements OnInit {
 
-  musicas: Musica[] | undefined;
+  musicas: MusicaDTO[] | undefined;
 
-  constructor(private musicaService: MusicaService, private router: Router) {
+  constructor(private musicaService: MusicaService,
+    private loginService: LoginService,
+    private reproduzirMusicaService: ReproduzirMusicaService,
+    private router: Router) {
 
   }
 
@@ -25,7 +34,6 @@ export class MusicaComponent implements OnInit {
   Load(){
     this.musicaService.buscarMusicas().subscribe(musicas => {
       this.musicas = musicas;
-      console.log(musicas)
     });
   }
 
@@ -40,7 +48,8 @@ export class MusicaComponent implements OnInit {
     });
   }
   reproduzir(id: any){
-    this.router.navigate(['/reproduzirMusica', { id: id }]);
+    this.reproduzirMusicaService.reproduzir(Number(id))
+  }
 
   }
-}
+

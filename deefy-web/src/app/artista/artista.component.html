@@ -3,6 +3,7 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
+      <th scope="col">Gênero</th>
       <th scope="col">Editar </th>
       <th scope="col"> Excluir</th>
     </tr>
@@ -11,6 +12,7 @@
     <tr *ngFor="let artista of artistas">
       <td> {{ artista.id }}</td>
       <td> {{ artista.nome }}</td>
+      <td> {{ artista.nomeGenero }}</td>
       <td>
         <button (click)="editar(artista.id)" class="btn btn-light">
           <i class="bi bi-pencil"></i>

@@ -1,1 +1,38 @@
-<p>editar-album works!</p>
+<div class="col col-lg-6">
+  <label class="form-label">Nome</label>
+  <input
+    id="NomeArtista"
+    [(ngModel)]="Titulo"
+    type="text"
+    class="form-control"
+    placeholder="Nome do Álbum">
+</div>
+<div class="col col-lg-6">
+  <label class="form-label">Data de Lançamento</label>
+  <input
+    id="dataLancamento"
+    [(ngModel)]="DataLancamento"
+    type="date"
+    class="form-control"
+    placeholder="Data de Lançamento">
+</div>
+<div class="col col-lg-6">
+  <label class="form-label">Genero</label>
+  <select class="form-control" [(ngModel)]="GeneroId">
+    <option *ngFor="let genero of generos" [ngValue]="genero.id" > {{ genero.nome }} </option>
+  </select>
+</div>
+<div class="col col-lg-6">
+  <label class="form-label">Artista</label>
+  <select class="form-control" [(ngModel)]="ArtistaId">
+    <option *ngFor="let artista of artistas" [ngValue]="artista.id" > {{ artista.nome }} </option>
+  </select>
+</div>
+
+<button
+  type="button"
+  (click)="salvar()"
+  class="btn btn-primary"
+  style="margin-top: 15px; margin-left: 15px;">Salvar</button>
+
+

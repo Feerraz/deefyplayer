@@ -18,14 +18,13 @@ export class ApiService {
 
   public post<T>(fullurl: string, json: any) {
     var headers = new HttpHeaders();
-    headers.set('Content-Type', 'application/json');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
     headers.set('Accept', 'application/json');
 
     var httpOptions = {
       headers: headers
     }
-    console.log(json)
-    return this.http.post(fullurl,json, httpOptions);
+    return this.http.post(fullurl, json, httpOptions);
   }
 
   public put<T>(fullurl: string, json: any) {
